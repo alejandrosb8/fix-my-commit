@@ -13,6 +13,7 @@ jobs:
   version_bump:
     name: Bump cache version
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
