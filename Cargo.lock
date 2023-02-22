@@ -348,7 +348,7 @@ dependencies = [
 
 [[package]]
 name = "fmc"
-version = "0.1.0"
+version = "0.1.0-r2-g1ef56b2"
 dependencies = [
  "bat",
  "clap",
