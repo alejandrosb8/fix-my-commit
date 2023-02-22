@@ -105,7 +105,8 @@ fn main() {
             .unwrap_or_default()
             .trim()
             .to_string()
-            .replace("--", "");
+            .replace("--", "")
+            .replace("\"", "");
 
         let new_message = format!("{}: {}", prefix, old_message);
 
@@ -138,9 +139,9 @@ fn main() {
                 == Answer::YES
         };
 
-        let code = format!("git commit -m {}", new_message);
-
         if should_run {
+            let code = format!("git commit -m \"{}\"", new_message);
+
             config.write_to_history(code.as_str());
             spinner = Spinner::new(Spinners::BouncingBar, "Executing...".into());
 
@@ -167,7 +168,7 @@ fn main() {
 
             spinner.stop_and_persist(
                 "✔".green().to_string().as_str(),
-                "Command ran successfully".green().to_string(),
+                "Commit done!".green().to_string(),
             );
 
             println!("{}", String::from_utf8_lossy(&output.stdout));
