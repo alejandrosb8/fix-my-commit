@@ -1,4 +1,4 @@
-#![allow(unused)]
+#![warn(clippy::all, clippy::pedantic, clippy::nursery)]
 
 use bat::PrettyPrinter;
 use clap::Parser;
@@ -37,7 +37,7 @@ fn main() {
 
     let prefix = capitalize_first_letter(&args.prefix);
 
-    if (string_in_array(&prefix, PREFIXES)) {
+    if string_in_array(&prefix, PREFIXES) {
         let client = Client::new();
         let mut spinner = Spinner::new(Spinners::BouncingBar, "Generating your message...".into());
 
