@@ -9,26 +9,6 @@ env:
 
 name: Create Release / Upload Assets
 
-jobs:
-  version_bump:
-    name: Bump cache version
-    runs-on: ubuntu-latest
-    permissions: write-all
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Cache Version
-        run: |
-          chmod +x .github/.deploy/bump.sh
-          ./.github/.deploy/bump.sh
-        shell: bash
-
-      - uses: actions/upload-artifact@v2
-        with:
-          name: pkg-version
-          path: Cargo.toml
-
   windows:
     name: Build for Windows
     runs-on: windows-latest
