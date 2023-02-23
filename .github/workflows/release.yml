@@ -18,11 +18,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Make executeable
-        run: chmod +x .github/.deploy/bump.sh
-
       - name: Cache Version
-        run: bash .github/.deploy/bump.sh
+        run: |
+          chmod +x .github/.deploy/bump.sh
+          ./.github/.deploy/bump.sh
+        shell: bash
 
       - uses: actions/upload-artifact@v2
         with:
