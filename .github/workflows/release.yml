@@ -22,7 +22,7 @@ jobs:
         run: chmod +x .github/.deploy/bump.sh
 
       - name: Cache Version
-        run: .github/.deploy/bump.sh
+        run: bash .github/.deploy/bump.sh
 
       - uses: actions/upload-artifact@v2
         with:

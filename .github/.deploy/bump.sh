@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -x
 # This script is used to bump the version number in the Cargo.toml file
 # Bump the version number in the package.json file
 version=$(git describe --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/')
