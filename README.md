@@ -21,3 +21,11 @@ export COHERE_API_KEY='XXXXXXXX'
 Once you have configured your environment, run `fmc`, it needs two parameter, -p (or --prefix) and -m (or --message)
 
 Prefixes that you can use: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `chore`, `revert`, `build`, `ci`.
+
+## Develop
+
+Make sure you have the latest version of rust installed (use [rustup](https://rustup.rs/)). Then, you can build the project by running `cargo build`, and run it with `cargo run`.
+
+## License
+
+This project is open-sourced under the MIT license. See [the License file](LICENSE) for more information.
