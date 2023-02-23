@@ -35,7 +35,7 @@ fn main() {
     let args = Cli::parse();
     let config = Config::new();
 
-    let prefix = capitalize_first_letter(&args.prefix);
+    let prefix = &args.prefix.to_lowercase();
 
     if string_in_array(&prefix, PREFIXES) {
         let client = Client::new();
@@ -108,7 +108,7 @@ fn main() {
             .replace("--", "")
             .replace("\"", "");
 
-        let new_message = format!("{}: {}", prefix, old_message);
+        let new_message = format!("{}: {}", prefix, old_message).to_lowercase();
 
         spinner.stop_and_persist(
             "✔".green().to_string().as_str(),
@@ -254,15 +254,4 @@ Good Message: \"add explanatory notes to the documentation on how to use the API
         "{}Prefix: \"{}\"\nBad Message: \"{}\"\nGood Message: ",
         format_prompt, prefix, message
     )
-}
-
-fn capitalize_first_letter(s: &str) -> String {
-    if let Some(first_char) = s.chars().next() {
-        let capitalized_char = first_char.to_uppercase();
-        let mut new_string = capitalized_char.to_string();
-        new_string.push_str(&s[1..]);
-        new_string
-    } else {
-        s.to_owned()
-    }
 }
